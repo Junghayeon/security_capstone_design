@@ -1,1 +1,2 @@
-# 한성대학교 사이버보안 캡스톤 디자인
+# security_capstone_design
+사이버보안 캡스톤 디자인
