@@ -20,7 +20,10 @@
             <a class="nav-link" id="malware">malware</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="obfuscated">obfuscated</a>
+            <a class="nav-link" id="ipcheck">ipcheck</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="portcheck">portcheck</a>
           </li>
         </ul>
     </nav>
@@ -44,11 +47,21 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    <div class="obfuscated">
-        <form action="/obfuscated" method="POST" enctype="multipart/form-data">
+    <div class="ipcheck">
+        <form action="/ipcheck" method="POST" enctype="multipart/form-data">
             {{ form.csrf_token }}
             <div class="form-group">
-                <p><b class="text-danger">obfuscated</b> {{ form.file.label }}</p>
+                <p><b class="text-danger">ipcheck</b> {{ form.file.label }}</p>
+                {{ form.file(class="form-control-file") }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="portcheck">
+        <form action="/portcheck" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <p><b class="text-danger">portcheck</b> {{ form.file.label }}</p>
                 {{ form.file(class="form-control-file") }}
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -59,17 +72,26 @@
 <script>
     $(document).ready(function() {
         $(".malware").show();
-        $(".obfuscated").hide();
+        $(".ipcheck").hide();
+        $(".portcheck").hide();
 
         $("#malware").click(function() {
             $(".malware").show();
-            $(".obfuscated").hide();
+            $(".ipcheck").hide();
+            $(".portcheck").hide();
         });
-        $("#obfuscated").click(function() {
+        $("#ipcheck").click(function() {
             $(".malware").hide();
-            $(".obfuscated").show();
+            $(".ipcheck").show();
+            $(".portcheck").hide();
+        });
+        $("#portcheck").click(function() {
+            $(".malware").hide();
+            $(".ipcheck").hide();
+            $(".portcheck").show();
         });
 
     });
 </script>
 </html>
+
